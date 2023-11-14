@@ -1,5 +1,6 @@
 package com.example.resttemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,8 +16,8 @@ public class RestTemplateApplication {
 
     }
     @EventListener(ApplicationStartedEvent.class)
-    public void makeRequestToShawnMend() {
-        String response = shawnMendesClient.makeShawnMendesRequest("shawnmendes", 5);
+    public void makeRequestToShawnMend() throws JsonProcessingException {
+        ShawnMendesResponse response = shawnMendesClient.makeShawnMendesRequest("shawnmendes", 1);
         System.out.println(response);
     }
 
